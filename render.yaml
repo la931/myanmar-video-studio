@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: myanmar-video-studio-api
+    runtime: docker
+    plan: starter
+    region: singapore
+    healthCheckPath: /health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: ASSEMBLYAI_API_KEY
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        sync: false
+      - key: ELEVENLABS_MODEL_ID
+        value: eleven_v3
+      - key: GCS_BUCKET
+        sync: false
+      - key: GCS_CREDENTIALS_JSON
+        sync: false
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: MAX_UPLOAD_MB
+        value: "2048"
+      - key: WORK_DIR
+        value: /tmp/myanmar-studio
